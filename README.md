@@ -1,4 +1,5 @@
-[SQL - Retail Sales Analysis_utf .csv](https://github.com/user-attachments/files/24060682/SQL.-.Retail.Sales.Analysis_utf.csv)# SQL Retail Sales Analysis Project
+SQL Retail Sales Analysis Project
+DATASET:[SQL - Retail Sales Analysis_utf .csv](https://github.com/user-attachments/files/24060682/SQL.-.Retail.Sales.Analysis_utf.csv)
 
 
 
