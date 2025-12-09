@@ -1,5 +1,13 @@
 # SQL Retail Sales Analysis Project
 
+*(Full Detailed Markdown File)*
+
+## 📌 Project Overview
+
+This project analyzes a retail dataset using SQL. It includes data
+cleaning, exploration, reporting, and business insights using analytical
+queries.
+
 ## 1. Create Database
 
 ``` sql
@@ -31,7 +39,7 @@ ALTER TABLE retail_sales
 RENAME COLUMN caregory TO category;
 ```
 
-## 4. Check Dataset Head
+## 4. View First 5 Rows
 
 ``` sql
 SELECT * FROM retail_sales
@@ -72,9 +80,9 @@ WHERE
     total_sales IS NULL;
 ```
 
-## 7. Data Exploration
+## 7. Basic Data Exploration
 
-### Total Sales Count
+### Total Sales
 
 ``` sql
 SELECT COUNT(*) AS total_sale FROM retail_sales;
@@ -92,26 +100,34 @@ SELECT COUNT(DISTINCT customer_id) AS total_customer FROM retail_sales;
 SELECT COUNT(DISTINCT category) AS total_categories FROM retail_sales;
 ```
 
-## 8. Business Queries
+### List Categories
 
-### Q1. Sales on 2022-11-05
+``` sql
+SELECT DISTINCT category FROM retail_sales;
+```
+
+------------------------------------------------------------------------
+
+# 8. Business Questions & SQL Answers
+
+## Q1. Sales on 2022-11-05
 
 ``` sql
 SELECT * FROM retail_sales
 WHERE sales_date = '2022-11-05';
 ```
 
-### Q2. Clothing & Quantity \> 3 in Nov-2022
+## Q2. Clothing + Quantity \> 3 (Nov 2022)
 
 ``` sql
 SELECT *
 FROM retail_sales
-WHERE category = 'Clothing' 
-  AND quantity >= 3 
-  AND TO_CHAR(sales_date,'YYYY-MM') = '2022-11';
+WHERE category = 'Clothing'
+  AND quantity >= 3
+  AND TO_CHAR(sales_date, 'YYYY-MM') = '2022-11';
 ```
 
-### Q3. Total Sales per Category
+## Q3. Total Sales by Category
 
 ``` sql
 SELECT
@@ -122,7 +138,7 @@ GROUP BY category
 ORDER BY category;
 ```
 
-### Q4. Average Age of Beauty Customers
+## Q4. Avg Age of Beauty Customers
 
 ``` sql
 SELECT ROUND(AVG(age), 2) AS average_age
@@ -130,7 +146,7 @@ FROM retail_sales
 WHERE category = 'Beauty';
 ```
 
-### Q5. Transactions Where total_sales \> 1000
+## Q5. Transactions With Sales \> 1000
 
 ``` sql
 SELECT *
@@ -138,7 +154,7 @@ FROM retail_sales
 WHERE total_sales > 1000;
 ```
 
-### Q6. Total Transactions by Gender & Category
+## Q6. Transactions by Gender & Category
 
 ``` sql
 SELECT
@@ -150,7 +166,7 @@ GROUP BY category, gender
 ORDER BY category;
 ```
 
-### Q7. Monthly Average Sales & Best-Selling Month
+## Q7. Monthly Avg Sales + Best Month Each Year
 
 ``` sql
 WITH monthly_sales AS (
@@ -170,7 +186,7 @@ WHERE rank = 1
 ORDER BY year;
 ```
 
-### Q8. Top 5 Customers by Sales
+## Q8. Top 5 Customers by Total Sales
 
 ``` sql
 SELECT 
@@ -182,7 +198,7 @@ ORDER BY total_sales DESC
 LIMIT 5;
 ```
 
-### Q9. Unique Customers per Category
+## Q9. Unique Customers per Category
 
 ``` sql
 SELECT 
@@ -192,7 +208,7 @@ FROM retail_sales
 GROUP BY category;
 ```
 
-### Q10. Order Shifts by Time
+## Q10. Orders by Time Shift
 
 ``` sql
 SELECT
@@ -205,3 +221,8 @@ SELECT
 FROM retail_sales
 GROUP BY shift;
 ```
+
+# 🎉 End of Document
+
+This Markdown file includes all SQL steps, detailed explanations, and
+business insights.
